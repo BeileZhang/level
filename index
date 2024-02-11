@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rank Levels</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="rankLevels">
+        <div class="level" data-level="Bronze">Bronze</div>
+        <div class="level" data-level="Silver">Silver</div>
+        <div class="level" data-level="Gold">Gold</div>
+        <div class="level" data-level="Platinum">Platinum</div>
+        <div class="level" data-level="Diamond">Diamond</div>
+        <div class="level" data-level="Master">Master</div>
+        <div class="level" data-level="Grandmaster">Grandmaster</div>
+        <div id="currentLevelIndicator">You are here!</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

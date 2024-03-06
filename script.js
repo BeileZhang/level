@@ -1,6 +1,6 @@
 window.onload = function() {
     generateRandomUsers(9); // Generate fake user data
-    addCurrentUser({name: "Current User", coins: 000}); // Add current user's data
+    addCurrentUser({name: "Current User", coins: 0}); // Add current user's data
     sortTable(); // Sort the table
 };
 

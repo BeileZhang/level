@@ -1,6 +1,20 @@
-window.onload = function() {
+window.onload = async function() {
+    // 假设MemberStack脚本已正确加载并可用
+    const memberstack = window.MemberStack.onReady; // 确保MemberStack脚本已准备好
+    const member = await memberstack.getCurrentMember(); // 获取当前登录的会员信息
+
+    // 获取显示用户名的元素
+    var userNameDisplay = document.querySelector('[data-ms-member="first-name"]');
+
+    if (member) {
+        // 如果用户已登录，更新元素内容为用户的名字
+        userNameDisplay.textContent = member['first-name'] || 'Current User';
+    } else {
+        // 如果用户未登录，显示默认文本
+        userNameDisplay.textContent = 'Current User';
+    }
+
     generateRandomUsers(9); // Generate fake user data
-    addCurrentUser({name: "Current User", coins: 0}); // Add current user's data
     sortTable(); // Sort the table
 };
 

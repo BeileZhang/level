@@ -1,21 +1,26 @@
 window.onload = async function() {
-    // 假设MemberStack脚本已正确加载并可用
-    const memberstack = window.MemberStack.onReady; // 确保MemberStack脚本已准备好
-    const member = await memberstack.getCurrentMember(); // 获取当前登录的会员信息
+    try {
+        // 假设MemberStack脚本已正确加载并可用
+        const memberstack = await window.MemberStack.onReady;
+        const member = await memberstack.getCurrentMember(); // 获取当前登录的会员信息
 
-    // 获取显示用户名的元素
-    var userNameDisplay = document.querySelector('[data-ms-member="first-name"]');
+        // 获取显示用户名的元素
+        var userNameDisplay = document.querySelector('[data-ms-member="first-name"]');
 
-    if (member) {
-        // 如果用户已登录，更新元素内容为用户的名字
-        userNameDisplay.textContent = member['first-name'] || 'Current User';
-    } else {
-        // 如果用户未登录，显示默认文本
-        userNameDisplay.textContent = 'Current User';
+        if (member) {
+            // 如果用户已登录，更新元素内容为用户的名字
+            userNameDisplay.textContent = member['first-name'] || 'Current User';
+        } else {
+            // 如果用户未登录，显示默认文本
+            userNameDisplay.textContent = 'Current User';
+        }
+    } catch (error) {
+        console.error("Error loading MemberStack member: ", error);
+        // 处理错误，如显示通用错误消息或回退到默认行为
     }
 
-    generateRandomUsers(9); // Generate fake user data
-    sortTable(); // Sort the table
+    generateRandomUsers(9); // 生成假用户数据
+    sortTable(); // 排序表格
 };
 
 function generateRandomUsers(numUsers) {
